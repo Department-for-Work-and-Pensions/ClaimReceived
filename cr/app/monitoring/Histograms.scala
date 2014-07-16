@@ -7,3 +7,9 @@ object Histograms {
     MetricsRegistry.default.histogram("ingress-receive-message-count").update(size)
   }
 }
+
+object Counters {
+  def recordClaimReceivedCount() {
+    MetricsRegistry.default.counter(s"cr-claim-received-count").inc()
+  }
+}
