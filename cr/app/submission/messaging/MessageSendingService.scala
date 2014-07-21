@@ -82,7 +82,7 @@ trait MessageSenderImpl extends MessageSendingService {
       if (result.getMessageCount >= getProperty(RABBIT_MAX_MESSAGES, 500)) {
         Failure(new MessageCapacityExceededException("Exceeded message capacity in the queue named [" + getQueueName + "]"))
       } else {
-        channel.basicPublish(exchange, queue, properties, msg.getBytes)
+        channel.basicPublish(exchange, queue, properties, msg.getBytes("UTF-8"))
         Success
       }
     }) match {

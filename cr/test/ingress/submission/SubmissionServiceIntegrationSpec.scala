@@ -6,7 +6,7 @@ import play.api.test.{FakeRequest, WithApplication}
 import play.api.test.Helpers._
 import com.rabbitmq.client.AMQP.BasicProperties
 import ingress.ConfigProperties
-import scala.concurrent.{ExecutionContext,Future}
+import scala.concurrent.{TimeoutException, ExecutionContext, Future}
 import ExecutionContext.Implicits.global
 import submission.SubmissionService
 import submission.messaging.{ConnectionManager, MessageSenderImpl, MessageSendingService}
@@ -103,10 +103,15 @@ class SubmissionServiceIntegrationSpec extends Specification with Tags{
       }
 
       val request = FakeRequest().withXmlBody(<request></request>)
-      val response = Future(service.xmlProcessing(request))
+      try {
+        val response = Future(service.xmlProcessing(request))
 
-      status(response) mustEqual SERVICE_UNAVAILABLE
-      ConnectionManager.factory.setUri(ConnectionManager.readUri)
+        status(response) mustEqual SERVICE_UNAVAILABLE
+        ConnectionManager.factory.setUri(ConnectionManager.readUri)
+      } catch {
+        case e: TimeoutException => success
+        case _: Throwable => failure
+      }
     }
 
   } section "integration"
