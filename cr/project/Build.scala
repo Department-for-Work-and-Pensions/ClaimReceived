@@ -17,7 +17,8 @@ object ApplicationBuild extends Build {
     "me.moocar"           %   "logback-gelf"  % "0.9.6p2",
     "postgresql"          %   "postgresql"    % "9.1-901.jdbc4",
     "com.codahale.metrics" % "metrics-healthchecks" % "3.0.1",
-    "com.kenshoo"         %% "metrics-play"        % "0.1.4"
+    "com.kenshoo"         %% "metrics-play"        % "0.1.4",
+    "com.dwp.carers"        %% "carerscommon"         % "5.4"
   )
 
   val res = resolvers ++= Seq(
