@@ -21,6 +21,10 @@ trait HealthController {
     request =>
       Ok(Json.prettyPrint(Json.toJson(healthMonitor.runHealthChecks()))).as("application/json").withHeaders("Cache-Control" -> "must-revalidate,no-cache,no-store")
   }
+
+  def ping = Action {
+    request => Ok
+  }
 }
 
 object HealthController extends Controller with HealthController
