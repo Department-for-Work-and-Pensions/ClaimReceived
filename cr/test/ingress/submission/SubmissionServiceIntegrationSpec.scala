@@ -5,7 +5,7 @@ import com.rabbitmq.client.{QueueingConsumer, Channel, Connection}
 import play.api.test.{FakeRequest, WithApplication}
 import play.api.test.Helpers._
 import com.rabbitmq.client.AMQP.BasicProperties
-import ingress.ConfigProperties
+import app.ConfigProperties
 import scala.concurrent.{TimeoutException, ExecutionContext, Future}
 import ExecutionContext.Implicits.global
 import submission.SubmissionService

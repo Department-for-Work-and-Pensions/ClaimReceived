@@ -3,7 +3,7 @@ package submission.messaging
 import com.rabbitmq.client.{Channel, Connection}
 import com.rabbitmq.client.AMQP.BasicProperties
 import scala.util.Try
-import ingress.ConfigProperties._
+import app.ConfigProperties._
 import monitoring.Histograms
 import submission.messaging.exceptions.MessageCapacityExceededException
 

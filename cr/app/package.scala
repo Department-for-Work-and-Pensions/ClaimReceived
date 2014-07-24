@@ -1,18 +1,15 @@
-import monitoring.{QueueHealthCheck, ProdHealthMonitor}
+import monitoring.ClaimReceivedMonitorRegistration
 import play.api._
-import play.api.Application
-import play.api.libs.concurrent.Akka
 import play.api.mvc.Results._
-import play.api.mvc.{SimpleResult, RequestHeader}
-import scala.concurrent.{ExecutionContext, Future}
+import play.api.mvc.{RequestHeader, SimpleResult}
+
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 import scala.util.{Success, Try}
-import ExecutionContext.Implicits.global
-import scala.concurrent.duration._
-import play.api.Play.current
 
 
 
-package object ingress {
+package object app {
 
 
   object ConfigProperties {
@@ -32,20 +29,12 @@ package object ingress {
 
   }
 
-  trait GlobalImpl extends GlobalSettings{
+  trait GlobalImpl extends GlobalSettings  with ClaimReceivedMonitorRegistration {
     override def onStart(app: Application) {
       super.onStart(app)
 
-      if (ConfigProperties.getProperty("health.logging",default=true)) {
-        ProdHealthMonitor.register("cr-queue-health", new QueueHealthCheck)
-        Logger.info("QueueHealthCheck registered.")
-        val check = Akka.system.scheduler.schedule(10.seconds, ConfigProperties.getProperty("metrics.frequency", default = 1).minute, new Runnable {
-          override def run(): Unit = ProdHealthMonitor.reportHealth()
-        })
-        Logger.debug(s"HealthCheck ${check.toString}")
-      } else {
-        Logger.warn("HealthCheck disabled by configuration.")
-      }
+      registerReporters()
+      registerHealthChecks()
 
       Logger.info("ClaimReceived Started") // used for operations, do not remove
     }

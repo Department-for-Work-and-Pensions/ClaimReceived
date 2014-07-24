@@ -1,4 +1,4 @@
-import ingress.GlobalImpl
+import app.GlobalImpl
 import monitoring.MonitorFilter
 import play.api.mvc.WithFilters
 
