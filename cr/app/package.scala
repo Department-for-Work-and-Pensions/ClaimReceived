@@ -1,4 +1,8 @@
+import java.net.InetAddress
+
+import app.ConfigProperties._
 import monitoring.ClaimReceivedMonitorRegistration
+import org.slf4j.MDC
 import play.api._
 import play.api.mvc.Results._
 import play.api.mvc.{RequestHeader, SimpleResult}
@@ -31,19 +35,24 @@ package object app {
 
   trait GlobalImpl extends GlobalSettings  with ClaimReceivedMonitorRegistration {
     override def onStart(app: Application) {
+      MDC.put("httpPort", getProperty("http.port", "Value not set"))
+      MDC.put("hostName", Option(InetAddress.getLocalHost.getHostName).getOrElse("Value not set"))
+      MDC.put("envName", getProperty("env.name", "Value not set"))
+      MDC.put("appName", getProperty("app.name", "Value not set"))
+      Logger.info("CR (ClaimReceived) is now starting")
       super.onStart(app)
 
       registerReporters()
       registerHealthChecks()
 
-      Logger.info("ClaimReceived Started") // used for operations, do not remove
+      Logger.info("CR (ClaimReceived) Started") // used for operations, do not remove
     }
 
     override def onHandlerNotFound(request: RequestHeader): Future[SimpleResult] = Future(NotFound(<NoRestEndpointFound/>))
 
     override def onStop(app: Application) {
       super.onStop(app)
-      Logger.info("ClaimReceived Stopped") // used for operations, do not remove
+      Logger.info("CR (ClaimReceived) Stopped") // used for operations, do not remove
     }
   }
 
