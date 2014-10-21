@@ -5,7 +5,7 @@ import monitoring.ClaimReceivedMonitorRegistration
 import org.slf4j.MDC
 import play.api._
 import play.api.mvc.Results._
-import play.api.mvc.{RequestHeader, SimpleResult}
+import play.api.mvc.{RequestHeader, Result}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -48,7 +48,7 @@ package object app {
       Logger.info("CR (ClaimReceived) Started") // used for operations, do not remove
     }
 
-    override def onHandlerNotFound(request: RequestHeader): Future[SimpleResult] = Future(NotFound(<NoRestEndpointFound/>))
+    override def onHandlerNotFound(request: RequestHeader): Future[Result] = Future(NotFound(<NoRestEndpointFound/>))
 
     override def onStop(app: Application) {
       super.onStop(app)
