@@ -17,7 +17,7 @@ object ApplicationBuild extends Build {
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
     "org.postgresql"      %   "postgresql"    % "9.3-1102-jdbc41",
-    "com.dwp.carers"      %% "carerscommon"   % "6.1"
+    "com.dwp.carers"      %% "carerscommon"   % "6.2"
   )
 
   var sO:Setting[_] = scalacOptions := Seq("-deprecation", "-unchecked", "-encoding", "utf8","-feature")
