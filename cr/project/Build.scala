@@ -6,18 +6,16 @@ import play.Play.autoImport._
 object ApplicationBuild extends Build {
 
   val appName         = "cr"
-  val appVersion      = "1.2-SNAPSHOT"
+  val appVersion      = "1.3-SNAPSHOT"
 
   val appDependencies = Seq(
     // Add your project dependencies here,
     jdbc,
     anorm,
-    "org.specs2"          %%  "specs2"        % "2.3.13"   % "test",
-    "org.mockito"         %   "mockito-all"   % "1.10.8"   % "test",
+    "org.mockito"         %   "mockito-all"   % "1.10.19"   % "test" withSources() withJavadoc(),
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
-    "org.postgresql"      %   "postgresql"    % "9.3-1102-jdbc41",
-    "com.dwp.carers"      %% "carerscommon"   % "6.2"
+    "com.dwp.carers"      %% "carerscommon"   % "6.4"
   )
 
   var sO:Setting[_] = scalacOptions := Seq("-deprecation", "-unchecked", "-encoding", "utf8","-feature")
