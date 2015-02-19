@@ -6,7 +6,7 @@ import play.Play.autoImport._
 object ApplicationBuild extends Build {
 
   val appName         = "cr"
-  val appVersion      = "1.3-SNAPSHOT"
+  val appVersion      = "1.4-SNAPSHOT"
 
   val appDependencies = Seq(
     // Add your project dependencies here,
@@ -15,7 +15,7 @@ object ApplicationBuild extends Build {
     "org.mockito"         %   "mockito-all"   % "1.10.19"   % "test" withSources() withJavadoc(),
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
-    "com.dwp.carers"      %% "carerscommon"   % "6.4"
+    "com.dwp.carers"      %% "carerscommon"   % "6.5"
   )
 
   var sO:Setting[_] = scalacOptions := Seq("-deprecation", "-unchecked", "-encoding", "utf8","-feature")
