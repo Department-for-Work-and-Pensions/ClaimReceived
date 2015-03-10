@@ -15,7 +15,7 @@ object ApplicationBuild extends Build {
     "org.mockito"         %   "mockito-all"   % "1.10.19"   % "test" withSources() withJavadoc(),
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
-    "com.dwp.carers"      %% "carerscommon"   % "6.6"
+    "gov.dwp.carers"      %% "carerscommon"   % "6.6"
   )
 
   var sO:Setting[_] = scalacOptions := Seq("-deprecation", "-unchecked", "-encoding", "utf8","-feature")
