@@ -1,3 +1,4 @@
+import de.johoop.jacoco4sbt.JacocoPlugin.jacoco
 import sbt._
 import sbt.Keys._
 import play.Play.autoImport._
@@ -13,6 +14,8 @@ object ApplicationBuild extends Build {
     jdbc,
     anorm,
     "org.mockito"         %   "mockito-all"   % "1.10.19"   % "test" withSources() withJavadoc(),
+    "org.jacoco"          % "org.jacoco.core"     % "0.7.4.201502262128"  % "test",
+    "org.jacoco"          % "org.jacoco.report"   % "0.7.4.201502262128"  % "test",
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
     "gov.dwp.carers"      %% "carerscommon"   % "6.6"
@@ -36,7 +39,7 @@ object ApplicationBuild extends Build {
 
   var vS: Seq[Def.Setting[_]] = Seq(version := appVersion, libraryDependencies ++= appDependencies)
 
-  var appSettings: Seq[Def.Setting[_]] =  sV ++ sO ++ sR  ++ vS ++ jO ++sOrg ++ f
+  var appSettings: Seq[Def.Setting[_]] =  sV ++ sO ++ sR  ++ vS ++ jO ++sOrg ++ f ++ jacoco.settings
 
   val main = Project(appName, file(".")).enablePlugins(play.PlayScala).settings(appSettings: _*)
 
