@@ -1,54 +1,39 @@
 package ingress.submission
 
+
+import org.specs2.mock.Mockito
 import org.specs2.mutable.{Tags, Specification}
 import com.rabbitmq.client.{QueueingConsumer, Channel, Connection}
-import play.api.test.{FakeRequest, WithApplication}
+import play.api.libs.ws.WS
+import play.api.test.{FakeApplication, WithServer, FakeRequest, WithApplication}
 import play.api.test.Helpers._
 import com.rabbitmq.client.AMQP.BasicProperties
 import app.ConfigProperties
-import scala.concurrent.{TimeoutException, ExecutionContext, Future}
+import scala.concurrent.{Await, TimeoutException, ExecutionContext, Future}
 import ExecutionContext.Implicits.global
 import submission.SubmissionService
-import submission.messaging.{ConnectionManager, MessageSenderImpl, MessageSendingService}
+import submission.messaging._
+import scala.concurrent.duration._
+import app.ConfigProperties._
 
-
-class SubmissionServiceIntegrationSpec extends Specification with Tags{
+class SubmissionServiceIntegrationSpec extends Specification with Tags with Mockito{
 
   "Ingress Service" should {
 
-    "Successfully publish a message into a live broker" in new WithApplication {
+    "Successfully publish a message into a live broker" in new WithServerConfig("queue.name" -> "IngresServiceIntegration1","env.name"->"Test") {
       
-      val service:SubmissionService = new SubmissionService {
-        override def messagingService: MessageSendingService = {
-          new MessageSenderImpl {
-            override def getQueueName:String = "IngressServiceIntegrationSpec_1"
-          }
-        }
-      }
-      val queueName = service.messagingService.getQueueName
-      var conn: Connection = ConnectionManager.factory.newConnection()
-      var channel: Channel = conn.createChannel()
-      val declareOk = channel.queueDeclare(queueName,true,false,false,null)
-      channel.close()
-      conn.close()
-      val timestamp = "2013-10-23"
-      val request = FakeRequest().withXmlBody(<request>{timestamp}</request>)
+      val queueName = TestUtils.declareQueue
 
-      val response = Future(service.xmlProcessing(request))
+      val timestamp = "2013-10-23"
+
+      val endpoint = s"http://localhost:$port/submission"
+
+      val response  = Await.result(WS.url(endpoint).post(<request>{timestamp}</request>),DurationInt(4).seconds)
 
       try{
-        status(response) mustEqual OK
+        response.status mustEqual OK
       }finally{
-        conn = ConnectionManager.factory.newConnection()
-        channel = conn.createChannel()
-        val consumer = new QueueingConsumer(channel)
-        channel.basicConsume(queueName,true,consumer)
-        val delivery = consumer.nextDelivery(2000)
-        val body: String = new String(delivery.getBody)
-        channel.queueDelete(queueName)
-        channel.close()
-        conn.close()
-        body must contain(timestamp)
+       TestUtils.consumeMessage(queueName) must contain(timestamp)
       }
 
 
@@ -56,7 +41,6 @@ class SubmissionServiceIntegrationSpec extends Specification with Tags{
 
     "Failure for exceeded message capacity" in new WithApplication {
 
-      import ConfigProperties._
       val service:SubmissionService = new SubmissionService {
         override def messagingService: MessageSendingService = {
           new MessageSenderImpl {
@@ -91,6 +75,7 @@ class SubmissionServiceIntegrationSpec extends Specification with Tags{
       }
     }
 
+
     "Failure because connection fails" in new WithApplication{
       ConnectionManager.factory.setUri("amqp://nonexistinghost")
 
@@ -111,6 +96,54 @@ class SubmissionServiceIntegrationSpec extends Specification with Tags{
       } catch {
         case e: TimeoutException => success
         case _: Throwable => failure
+      }
+    }
+
+
+    "Failure by createChannel throwing exceptions" in new WithApplication {
+
+      val service:SubmissionService = new SubmissionService {
+
+        override def messagingService: MessageSendingService = new MessageSenderImpl {
+          override def getQueueName:String = "IngressServiceIntegrationSpec_4"
+
+          override protected def createChannel(connection: Connection): Channel = {
+            throw new Exception("This is a test thrown exception")
+          }
+        }
+      }
+
+      val request = FakeRequest().withXmlBody(<request>{"2013-10-24"}</request>)
+
+      try{
+        val response = Future(service.xmlProcessing(request))
+        status(response) mustEqual SERVICE_UNAVAILABLE
+      }finally {
+
+      }
+    }
+
+    "Failure by withChannel throwing exceptions" in new WithApplication {
+
+      val service:SubmissionService = new SubmissionService {
+
+        override def messagingService: MessageSendingService = new MessageSenderImpl {
+          override def getQueueName:String = "IngressServiceIntegrationSpec_5"
+
+
+          protected override def withChannel(f: (Channel) => Result): Result = {
+            throw new Exception("This is a test thrown exception")
+          }
+        }
+      }
+
+      val request = FakeRequest().withXmlBody(<request>{"2013-10-24"}</request>)
+
+      try{
+        val response = Future(service.xmlProcessing(request))
+        status(response) mustEqual SERVICE_UNAVAILABLE
+      }finally {
+
       }
     }
 

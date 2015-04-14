@@ -13,6 +13,7 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     jdbc,
     anorm,
+    ws,
     "org.mockito"         %   "mockito-all"   % "1.10.19"   % "test" withSources() withJavadoc(),
     "org.jacoco"          % "org.jacoco.core"     % "0.7.4.201502262128"  % "test",
     "org.jacoco"          % "org.jacoco.report"   % "0.7.4.201502262128"  % "test",

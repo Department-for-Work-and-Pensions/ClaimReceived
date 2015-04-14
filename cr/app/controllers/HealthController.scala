@@ -19,7 +19,9 @@ trait HealthController {
 
   def healthReport = Action {
     request =>
-      Ok(Json.prettyPrint(Json.toJson(healthMonitor.runHealthChecks()))).as("application/json").withHeaders("Cache-Control" -> "must-revalidate,no-cache,no-store")
+      Ok(Json.prettyPrint(Json.toJson(healthMonitor.runHealthChecks())))
+        .as("application/json")
+        .withHeaders("Cache-Control" -> "must-revalidate,no-cache,no-store")
   }
 
   def ping = Action {

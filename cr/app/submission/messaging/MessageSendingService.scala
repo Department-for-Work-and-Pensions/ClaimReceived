@@ -45,6 +45,8 @@ trait MessageSenderImpl extends MessageSendingService {
     }
   }
 
+  protected def createChannel(connection:Connection) = connection.createChannel()
+
   /**
    * This method calls withConnection sending an anonymous function that using a connection
    * will manage a channel and will send it to the f parameter function
@@ -52,7 +54,7 @@ trait MessageSenderImpl extends MessageSendingService {
    * @return Returns whether if the operation has been successful or a failure
    */
   protected override def withChannel(f: Channel => Result): Result = withConnection { connection =>
-    Try(connection.createChannel()) match {
+    Try(createChannel(connection)) match {
       case util.Success(channel) =>
         channel.confirmSelect()
         val res = f(channel)
@@ -115,6 +117,6 @@ trait MessageSenderImpl extends MessageSendingService {
     }
   }
 
-  override def getQueueName: String = "ingress_queue_" + getProperty("env.name", "default")
+  override def getQueueName: String = getProperty("queue.name","ingress")+"_queue_" + getProperty("env.name", "default")
 
 }

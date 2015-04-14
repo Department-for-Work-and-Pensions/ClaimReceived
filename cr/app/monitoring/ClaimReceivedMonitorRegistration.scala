@@ -3,6 +3,7 @@ package monitoring
 import app.ConfigProperties._
 import monitor.{HealthMonitor, MonitorRegistration}
 import play.api.Logger
+import app.ConfigProperties._
 
 /**
  * Handles all monitoring and registration.
@@ -19,7 +20,7 @@ trait ClaimReceivedMonitorRegistration extends MonitorRegistration {
 
   override def registerHealthChecks(): Unit = {
     Logger.info("QueueHealthCheck registered.")
-    ProdHealthMonitor.register("cr-queue-health", new QueueHealthCheck)
+    ProdHealthMonitor.register(getProperty("app.name","cr")+"-queue-health", new QueueHealthCheck)
   }
 
 
