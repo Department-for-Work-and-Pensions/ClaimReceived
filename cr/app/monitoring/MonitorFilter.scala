@@ -6,5 +6,5 @@ import com.codahale.metrics.MetricRegistry
 abstract class MonitorFilter extends MetricsFilter
 
 object MonitorFilter extends MonitorFilter {
-  override def registry: MetricRegistry =  MetricsRegistry.default
+  override def registry: MetricRegistry =  MetricsRegistry.defaultRegistry
 }
