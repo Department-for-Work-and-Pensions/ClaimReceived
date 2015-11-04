@@ -1,6 +1,6 @@
 package ingress.submission
 
-import org.specs2.mutable.{Tags, Specification}
+import org.specs2.mutable.Specification
 import org.specs2.mock.Mockito
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
@@ -8,7 +8,7 @@ import scala.concurrent.{ExecutionContext, Future}
 import ExecutionContext.Implicits.global
 import submission.messaging.exceptions.MessageCapacityExceededException
 
-class SubmissionServiceUnitSpec extends Specification with Tags with Mockito{
+class SubmissionServiceUnitSpec extends Specification with Mockito{
 
   "Ingress Service" should {
 
@@ -59,7 +59,6 @@ class SubmissionServiceUnitSpec extends Specification with Tags with Mockito{
 
     }
 
-  } section "unit"
-
-
+  }
+  section("unit")
 }

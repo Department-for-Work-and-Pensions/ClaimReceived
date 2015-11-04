@@ -2,13 +2,14 @@ package ingress.submission
 
 
 import org.specs2.mock.Mockito
-import org.specs2.mutable.{Tags, Specification}
+import org.specs2.mutable.Specification
 import com.rabbitmq.client.{QueueingConsumer, Channel, Connection}
 import play.api.libs.ws.WS
-import play.api.test.{FakeApplication, WithServer, FakeRequest, WithApplication}
+import play.api.test.{FakeApplication, FakeRequest}
 import play.api.test.Helpers._
 import com.rabbitmq.client.AMQP.BasicProperties
 import app.ConfigProperties
+import utils.WithApplication
 import scala.concurrent.{Await, TimeoutException, ExecutionContext, Future}
 import ExecutionContext.Implicits.global
 import submission.SubmissionService
@@ -16,7 +17,7 @@ import submission.messaging._
 import scala.concurrent.duration._
 import app.ConfigProperties._
 
-class SubmissionServiceIntegrationSpec extends Specification with Tags with Mockito{
+class SubmissionServiceIntegrationSpec extends Specification with Mockito{
 
   "Ingress Service" should {
 
@@ -147,5 +148,6 @@ class SubmissionServiceIntegrationSpec extends Specification with Tags with Mock
       }
     }
 
-  } section "integration"
+  }
+  section("integration")
 }

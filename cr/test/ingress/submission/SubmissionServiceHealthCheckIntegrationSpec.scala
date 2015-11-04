@@ -3,9 +3,8 @@ package ingress.submission
 import play.api.libs.json.{JsBoolean, JsString, JsArray}
 
 import scala.concurrent.duration._
-import org.specs2.mutable.{Tags, Specification}
+import org.specs2.mutable.Specification
 import play.api.libs.ws.WS
-import play.api.test.WithServer
 import play.api.http.Status._
 
 import scala.concurrent.{duration, Await}
@@ -13,7 +12,7 @@ import scala.concurrent.{duration, Await}
 /**
  * Created by valtechuk on 14/04/2015.
  */
-class SubmissionServiceHealthCheckIntegrationSpec extends Specification with Tags{
+class SubmissionServiceHealthCheckIntegrationSpec extends Specification{
 
 
   "Health check" should {
@@ -72,5 +71,6 @@ class SubmissionServiceHealthCheckIntegrationSpec extends Specification with Tag
       response.status mustEqual OK
       response.body.size must beGreaterThan(0)
     }
-  } section "integration"
+  }
+  section("integration")
 }

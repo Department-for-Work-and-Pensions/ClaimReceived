@@ -4,6 +4,6 @@
 
 POST          /submission                   controllers.Application.submission
 
-GET           /report/metrics               com.kenshoo.play.metrics.MetricsController.metrics
+GET           /report/metrics               @com.kenshoo.play.metrics.MetricsController.metrics
 GET           /report/health                controllers.HealthController.healthReport
 GET           /ping                         controllers.HealthController.ping

@@ -3,9 +3,10 @@ package ingress.submission
 import app.ConfigProperties._
 import com.rabbitmq.client.AMQP.BasicProperties
 import com.rabbitmq.client.{QueueingConsumer, Channel, Connection}
-import play.api.test.{FakeApplication, WithServer}
+import play.api.test.FakeApplication
 import submission.SubmissionService
 import submission.messaging.{MessageSender, ConnectionManager}
+import utils.WithServer
 
 class WithServerConfig(params:(String,_)*) extends WithServer(app = FakeApplication(additionalConfiguration = params.toMap))
 
