@@ -2,9 +2,9 @@ package utils
 
 import javax.inject.Inject
 
-import monitor.MonitorFilter
+import com.kenshoo.play.metrics.MetricsFilter
 import play.api.http.HttpFilters
 
-class Filters @Inject() (monitorFilter: MonitorFilter) extends HttpFilters {
-  val filters = Seq(monitorFilter)
+class Filters @Inject() (metricsFilter: MetricsFilter) extends HttpFilters {
+  val filters = Seq(metricsFilter)
 }
