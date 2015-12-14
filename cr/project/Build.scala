@@ -1,7 +1,7 @@
 import de.johoop.jacoco4sbt.JacocoPlugin.jacoco
 import sbt._
 import sbt.Keys._
-import play.Play.autoImport._
+import play.sbt.Play.autoImport._
 
 
 object ApplicationBuild extends Build {
@@ -46,6 +46,6 @@ object ApplicationBuild extends Build {
 
   var appSettings: Seq[Def.Setting[_]] =  sV ++ sO ++ sR  ++ vS ++ jO ++sOrg ++ f ++ jacoco.settings
 
-  val main = Project(appName, file(".")).enablePlugins(play.PlayScala).settings(appSettings: _*)
+  val main = Project(appName, file(".")).enablePlugins(play.sbt.PlayScala).settings(appSettings: _*)
 
 }
