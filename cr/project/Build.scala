@@ -7,7 +7,7 @@ import play.sbt.Play.autoImport._
 object ApplicationBuild extends Build {
 
   val appName         = "cr"
-  val appVersion      = "2.1-SNAPSHOT"
+  val appVersion      = "2.2-SNAPSHOT"
 
   val appDependencies = Seq(
     // Add your project dependencies here,
