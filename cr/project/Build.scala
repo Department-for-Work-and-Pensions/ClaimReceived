@@ -2,12 +2,14 @@ import de.johoop.jacoco4sbt.JacocoPlugin.jacoco
 import sbt._
 import sbt.Keys._
 import play.sbt.Play.autoImport._
+import utils.ConfigurationChangeHelper._
 
 
 object ApplicationBuild extends Build {
-
   val appName         = "cr"
   val appVersion      = "2.2-SNAPSHOT"
+
+  processConfFiles(Seq("conf/application-info.conf"), Seq("application.version" -> appVersion, "application.name" -> appName))
 
   val appDependencies = Seq(
     // Add your project dependencies here,
@@ -19,7 +21,7 @@ object ApplicationBuild extends Build {
     "org.jacoco"          % "org.jacoco.report"   % "0.7.4.201502262128"  % "test",
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
-    "gov.dwp.carers"      %% "carerscommon"   % "7.2",
+    "gov.dwp.carers"      %% "carerscommon"   % "7.5",
     "org.specs2" %% "specs2-core" % "3.3.1" % "test" withSources() withJavadoc(),
     "org.specs2" %% "specs2-mock" % "3.3.1" % "test" withSources() withJavadoc(),
     "org.specs2" %% "specs2-junit" % "3.3.1" % "test" withSources() withJavadoc(),

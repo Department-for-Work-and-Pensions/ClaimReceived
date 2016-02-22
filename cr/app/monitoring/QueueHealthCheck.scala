@@ -1,11 +1,12 @@
 package monitoring
 
-import com.codahale.metrics.health.HealthCheck
-import com.codahale.metrics.health.HealthCheck.Result
+import app.ConfigProperties._
+import gov.dwp.carers.CADSHealthCheck
+import gov.dwp.carers.CADSHealthCheck.Result
 import submission.messaging.{Failure, Success, MessageSender}
 import submission.SubmissionServiceImpl
 
-class QueueHealthCheck extends HealthCheck with SubmissionServiceImpl {
+class QueueHealthCheck extends CADSHealthCheck(s"${getProperty("application.name", default="cr")}", getProperty("application.version", default="x1").takeWhile(_ != '-')) with SubmissionServiceImpl {
   override def check(): Result = {
     MessageSender.queueStatus() match {
       case Success =>
