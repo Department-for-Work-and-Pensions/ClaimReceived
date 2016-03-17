@@ -21,7 +21,7 @@ package object app {
 
     val WAITING_TIME_AFTER_RECOVERY = "waiting.after.recovery"
 
-    def getAppName = getProperty("app.name", "Value not set")
+    def getAppName = getProperty("application.name", "Value not set")
     def getProperty(property:String,default:Int) = Try(Play.current.configuration.getInt(property).getOrElse(default)) match { case Success(s) => s case _ => default}
     def getProperty(property:String,default:String) = Try(Play.current.configuration.getString(property).getOrElse(default)) match { case Success(s) => s case _ => default}
     def getProperty(property:String,default:Boolean) = Try(Play.current.configuration.getBoolean(property).getOrElse(default)) match { case Success(s) => s case _ => default}
@@ -33,7 +33,7 @@ package object app {
       MDC.put("httpPort", getProperty("http.port", "Value not set"))
       MDC.put("hostName", Option(InetAddress.getLocalHost.getHostName).getOrElse("Value not set"))
       MDC.put("envName", getProperty("env.name", "Value not set"))
-      MDC.put("appName", getProperty("app.name", "Value not set"))
+      MDC.put("appName", getAppName)
       Logger.info(s"$getAppName is now starting")
       super.onStart(app)
 

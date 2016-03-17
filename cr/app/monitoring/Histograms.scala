@@ -12,6 +12,6 @@ object Histograms {
 
 object Counters {
   def recordClaimReceivedCount() {
-    SharedMetricRegistries.getOrCreate(current.configuration.getString("metrics.name").getOrElse("default")).counter(getProperty("app.name","cr-claim-received")+"-count").inc()
+    SharedMetricRegistries.getOrCreate(current.configuration.getString("metrics.name").getOrElse("default")).counter(getProperty("application.name","cr-claim-received")+"-count").inc()
   }
 }

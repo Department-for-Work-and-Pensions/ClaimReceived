@@ -1,7 +1,6 @@
 package submission
 
-import play.api.libs.json.JsValue
-import play.api.mvc.{RawBuffer, Results, AnyContent, Request}
+import play.api.mvc.{Results, AnyContent, Request}
 import play.api.Logger
 import submission.messaging.{MessageSender, Failure, Success, MessageSendingService}
 import submission.messaging.exceptions.MessageCapacityExceededException
@@ -16,12 +15,12 @@ trait SubmissionService {
    * @return  XML response: Status Code and timestamp.
    */
   def xmlProcessing(request: Request[AnyContent]) = {
-
     request.body.asXml.map { xml =>
       val msgService: MessageSendingService = messagingService
 
       msgService.sendMessage(xml.toString(),msgService.getQueueName) match {
         case Success =>
+          Logger.info("Message successfully sent")
           Results.Ok("")
 
         case Failure(exception:MessageCapacityExceededException) =>
@@ -37,22 +36,19 @@ trait SubmissionService {
           Results.InternalServerError
 
       }
-
     } match {
-      case Some(x) => x
+      case Some(x) =>
+        Logger.info("Received valid XML request")
+        x
       case _ =>
         Logger.error(s"Received a non XML request. Rejected. Body: ${request.body.toString}")
         Results.BadRequest
     }
   }
-
-
 }
 
 trait SubmissionServiceImpl extends SubmissionService {
-
   override def messagingService: MessageSendingService = {
     MessageSender
   }
-
 }
