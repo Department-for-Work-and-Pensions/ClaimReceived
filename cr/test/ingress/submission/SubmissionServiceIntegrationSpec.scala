@@ -55,7 +55,7 @@ class SubmissionServiceIntegrationSpec extends Specification with Mockito{
       val declareOk = channel.queueDeclare(queueName,true,false,false,null)
       channel.confirmSelect()
 
-      for(i <- 0 to getProperty(RABBIT_MAX_MESSAGES,20))  {
+      for(i <- 0 to getIntProperty("rabbit.messages.max"))  {
         channel.basicPublish("",queueName,new BasicProperties().builder().deliveryMode(2).build(),("Message number "+i).getBytes)
         channel.waitForConfirms()
       }

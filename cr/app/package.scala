@@ -17,22 +17,44 @@ package object app {
 
 
   object ConfigProperties {
-    val RABBIT_MAX_MESSAGES = "rabbit.messages.max"
+    def getAppName = getProperty("application.name", "String", true).toString
 
-    val WAITING_TIME_AFTER_RECOVERY = "waiting.after.recovery"
+    def getIntProperty(property: String, throwError: Boolean = true): Int = getProperty(property, "Int", throwError).toInt
 
-    def getAppName = getProperty("application.name", "Value not set")
-    def getProperty(property:String,default:Int) = Try(Play.current.configuration.getInt(property).getOrElse(default)) match { case Success(s) => s case _ => default}
-    def getProperty(property:String,default:String) = Try(Play.current.configuration.getString(property).getOrElse(default)) match { case Success(s) => s case _ => default}
-    def getProperty(property:String,default:Boolean) = Try(Play.current.configuration.getBoolean(property).getOrElse(default)) match { case Success(s) => s case _ => default}
+    def getStringProperty(property: String, throwError: Boolean = true): String = getProperty(property, "String", throwError).toString
 
+    def getBooleanProperty(property: String, throwError: Boolean = true): Boolean = getProperty(property, "Boolean", throwError).toBoolean
+
+    private def getProperty(property: String, propertyType: String, throwError: Boolean): String = {
+      if (!throwError && Play.unsafeApplication == null) {
+        defaultValue(propertyType)
+      }
+      else {
+        (Play.current.configuration.getString(property), throwError) match {
+          case (Some(s), _) => s.toString
+          case (_, false) => defaultValue(propertyType)
+          case (_, _) => {
+            Logger.error("ERROR - getProperty failed to retrieve application property for:" + property)
+            throw new IllegalArgumentException(s"ERROR - getProperty failed to retrieve application property for:$property")
+          }
+        }
+      }
+    }
+
+    private def defaultValue(propertyType: String) = {
+      propertyType match {
+        case "String" => ""
+        case "Int" => "-1"
+        case "Boolean" => "false"
+      }
+    }
   }
 
   trait GlobalImpl extends GlobalSettings  with ClaimReceivedMonitorRegistration {
     override def onStart(app: Application) {
-      MDC.put("httpPort", getProperty("http.port", "Value not set"))
+      MDC.put("httpPort", getStringProperty("http.port", throwError = false))
       MDC.put("hostName", Option(InetAddress.getLocalHost.getHostName).getOrElse("Value not set"))
-      MDC.put("envName", getProperty("env.name", "Value not set"))
+      MDC.put("envName", getStringProperty("env.name", throwError = false))
       MDC.put("appName", getAppName)
       Logger.info(s"$getAppName is now starting")
       super.onStart(app)
@@ -47,6 +69,7 @@ package object app {
 
     override def onStop(app: Application) {
       super.onStop(app)
+      val appName=getStringProperty("application.name", throwError = false)
       Logger.info(s"$getAppName Stopped") // used for operations, do not remove
     }
   }

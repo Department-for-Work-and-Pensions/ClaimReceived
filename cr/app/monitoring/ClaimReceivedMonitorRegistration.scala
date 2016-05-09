@@ -9,11 +9,11 @@ import app.ConfigProperties._
  */
 trait ClaimReceivedMonitorRegistration extends MonitorRegistration {
 
-  override def getFrequency: Int = getProperty("metrics.frequency", default = 1)
+  override def getFrequency: Int = getIntProperty("metrics.frequency")
 
-  override def isLogMetrics: Boolean = getProperty("metrics.slf4j", default = false)
+  override def isLogMetrics: Boolean = getBooleanProperty("metrics.slf4j")
 
-  override def isLogHealth: Boolean = getProperty("health.logging", default = false)
+  override def isLogHealth: Boolean = getBooleanProperty("health.logging")
 
   override   def getHealthMonitor : HealthMonitor = ProdHealthMonitor
 

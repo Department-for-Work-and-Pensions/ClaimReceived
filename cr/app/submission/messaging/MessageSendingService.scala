@@ -81,7 +81,7 @@ trait MessageSenderImpl extends MessageSendingService {
     Try(withChannel { channel =>
       val result = channel.queueDeclare(getQueueName, true, false, false, null)
       Histograms.recordQueueMessageCount(result.getMessageCount)
-      if (result.getMessageCount >= getProperty(RABBIT_MAX_MESSAGES, 500)) {
+      if (result.getMessageCount >= getIntProperty("rabbit.messages.max")) {
         Failure(new MessageCapacityExceededException("Exceeded message capacity in the queue named [" + getQueueName + "]"))
       } else {
         channel.basicPublish(exchange, queue, properties, msg.getBytes("UTF-8"))
@@ -102,7 +102,7 @@ trait MessageSenderImpl extends MessageSendingService {
     Try(withChannel { channel =>
       val result = channel.queueDeclare(getQueueName, true, false, false, null)
       Histograms.recordQueueMessageCount(result.getMessageCount)
-      if (result.getMessageCount >= getProperty(RABBIT_MAX_MESSAGES, 500)) {
+      if (result.getMessageCount >= getIntProperty("rabbit.messages.max")) {
         Failure(new MessageCapacityExceededException("Exceeded message capacity in the queue named [" + getQueueName + "]"))
       } else {
         Success
@@ -117,6 +117,6 @@ trait MessageSenderImpl extends MessageSendingService {
     }
   }
 
-  override def getQueueName: String = getProperty("queue.name","ingress")+"_queue_" + getProperty("env.name", "default")
+  override def getQueueName: String = getStringProperty("queue.name")+"_queue_" + "default"
 
 }
