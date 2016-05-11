@@ -32,7 +32,8 @@ trait MessageSenderImpl extends MessageSendingService {
 
   /**
    * This method is going to manage a connection and send it to the f function
-   * @param f Function that receives a Connection and returns a result
+    *
+    * @param f Function that receives a Connection and returns a result
    * @return Returns whether if the operation has been successful or a failure
    */
   protected override def withConnection(f: Connection => Result): Result = {
@@ -50,7 +51,8 @@ trait MessageSenderImpl extends MessageSendingService {
   /**
    * This method calls withConnection sending an anonymous function that using a connection
    * will manage a channel and will send it to the f parameter function
-   * @param f Function that receives a Channel and returns a result
+    *
+    * @param f Function that receives a Channel and returns a result
    * @return Returns whether if the operation has been successful or a failure
    */
   protected override def withChannel(f: Channel => Result): Result = withConnection { connection =>
@@ -70,7 +72,8 @@ trait MessageSenderImpl extends MessageSendingService {
    * Sending a message to the rabbitMQ server using [[ingress.submission.messaging.ConnectionManager.durableProperties]]
    * Before sending the message we are going to make sure that the queue is not overloaded checking
    * the current message number with the limit number stored in the config file as ''rabbit.messages.max''
-   * @param msg String that is going to be sent to the queue
+    *
+    * @param msg String that is going to be sent to the queue
    * @param queue Queue name or also, queuing route.
    * @param exchange Exchange name
    * @param properties Message properties, using durableProperties by default.
@@ -117,6 +120,5 @@ trait MessageSenderImpl extends MessageSendingService {
     }
   }
 
-  override def getQueueName: String = getStringProperty("queue.name")+"_queue_" + "default"
-
+  override def getQueueName: String = getStringProperty("queue.name") + "_queue_" + getStringProperty("env.name")
 }

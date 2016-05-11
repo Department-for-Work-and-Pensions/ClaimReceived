@@ -1,15 +1,14 @@
 package ingress.submission
 
-import app.ConfigProperties._
 import com.rabbitmq.client.AMQP.BasicProperties
 import com.rabbitmq.client.{QueueingConsumer, Channel, Connection}
 import play.api.test.FakeApplication
 import submission.SubmissionService
 import submission.messaging.{MessageSender, ConnectionManager}
 import utils.WithServer
+import play.api._
 
 class WithServerConfig(params:(String,_)*) extends WithServer(app = FakeApplication(additionalConfiguration = params.toMap))
-
 
 object TestUtils {
 
@@ -19,6 +18,7 @@ object TestUtils {
       override def messagingService = MessageSender
     }
     val queueName = service.messagingService.getQueueName
+    Logger.info(s"cr WithServerConfig declaring queue $queueName")
     val conn: Connection = ConnectionManager.factory.newConnection()
     val channel: Channel = conn.createChannel()
     val declareOk = channel.queueDeclare(queueName,true,false,false,null)
