@@ -21,7 +21,7 @@ object ApplicationBuild extends Build {
     "org.jacoco"          % "org.jacoco.report"   % "0.7.4.201502262128"  % "test",
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
-    "gov.dwp.carers"      %% "carerscommon"   % "7.6",
+    "gov.dwp.carers"      %% "carerscommon"   % "7.17-SNAPSHOT",
     "org.specs2" %% "specs2-core" % "3.3.1" % "test" withSources() withJavadoc(),
     "org.specs2" %% "specs2-mock" % "3.3.1" % "test" withSources() withJavadoc(),
     "org.specs2" %% "specs2-junit" % "3.3.1" % "test" withSources() withJavadoc(),
@@ -32,8 +32,12 @@ object ApplicationBuild extends Build {
 
   var sV: Seq[Def.Setting[_]] = Seq(scalaVersion := "2.10.5")
 
+  var sR1 = if (System.getProperty("artifactory_url") == null) {
+    "http://build.3cbeta.co.uk:8080/artifactory/repo/"
+  } else s"${System.getProperty("artifactory_url")}/repo"
+
   var sR:Seq[Setting[_]] = Seq(
-    resolvers += "Carers repo" at "http://build.3cbeta.co.uk:8080/artifactory/repo/",
+    resolvers += "Carers repo" at sR1,
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
     resolvers += "Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases")
 
@@ -48,15 +52,19 @@ object ApplicationBuild extends Build {
   var sAppV: Seq[Def.Setting[_]] = Seq(version := appVersion)
   var sOrg: Seq[Def.Setting[_]] = Seq(organization := "gov.dwp.carers")
 
+  var sR2 = if (System.getProperty("artifactory_url") == null) {
+    "http://build.3cbeta.co.uk:8080/artifactory"
+  } else s"${System.getProperty("artifactory_url")}"
+
   val isSnapshotBuild = appVersion.endsWith("-SNAPSHOT")
   var publ: Seq[Def.Setting[_]] = Seq(
-    publishTo := Some("Artifactory Realm" at "http://build.3cbeta.co.uk:8080/artifactory/repo/"),
+    publishTo := Some("Artifactory Realm" at sR1),
     publishTo <<= version {
       (v: String) =>
         if (isSnapshotBuild)
-          Some("snapshots" at "http://build.3cbeta.co.uk:8080/artifactory/libs-snapshot-local")
+          Some("snapshots" at s"${sR2}/libs-snapshot-local")
         else
-          Some("releases" at "http://build.3cbeta.co.uk:8080/artifactory/libs-release-local")
+          Some("releases" at s"${sR2}/libs-release-local")
     })
 
   var appSettings: Seq[Def.Setting[_]] =  sV ++ sO ++ sR  ++ vS ++ jO ++sOrg ++ f ++ jacoco.settings ++ sAppN ++ sAppV ++ sOrg ++ publ
