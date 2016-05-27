@@ -1,9 +1,12 @@
+import com.typesafe.sbt.packager.universal.{UniversalPlugin, UniversalDeployPlugin}
 import de.johoop.jacoco4sbt.JacocoPlugin.jacoco
 import sbt._
 import sbt.Keys._
 import play.sbt.Play.autoImport._
+import sbt.dsl._
 import utils.ConfigurationChangeHelper._
-
+import com.typesafe.sbt.SbtNativePackager._
+import com.typesafe.sbt.packager.SettingsHelper._
 
 object ApplicationBuild extends Build {
   val appName         = "cr"
@@ -11,17 +14,22 @@ object ApplicationBuild extends Build {
 
   processConfFiles(Seq("conf/application-info.conf"), Seq("application.version" -> appVersion))
 
+  // however this will enabled everything
+  enablePlugins(UniversalPlugin)
+  enablePlugins(UniversalDeployPlugin)
+
   val appDependencies = Seq(
     // Add your project dependencies here,
     jdbc,
     "com.typesafe.play"  %% "anorm"               % "2.4.0",
     ws,
     "org.mockito"         %   "mockito-all"   % "1.10.19"   % "test" withSources() withJavadoc(),
-    "org.jacoco"          % "org.jacoco.core"     % "0.7.4.201502262128"  % "test",
-    "org.jacoco"          % "org.jacoco.report"   % "0.7.4.201502262128"  % "test",
+    "org.jacoco"          %   "org.jacoco.core"     % "0.7.4.201502262128"  % "test",
+    "org.jacoco"          %   "org.jacoco.report"   % "0.7.4.201502262128"  % "test",
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
-    "gov.dwp.carers"      %% "carerscommon"   % "7.17-SNAPSHOT",
+    "gov.dwp.carers"      %   "xmlcommons"   % "8.01-SNAPSHOT",
+    "org.postgresql"      %   "postgresql"    % "9.3-1103-jdbc41",
     "org.specs2" %% "specs2-core" % "3.3.1" % "test" withSources() withJavadoc(),
     "org.specs2" %% "specs2-mock" % "3.3.1" % "test" withSources() withJavadoc(),
     "org.specs2" %% "specs2-junit" % "3.3.1" % "test" withSources() withJavadoc(),
@@ -67,7 +75,7 @@ object ApplicationBuild extends Build {
           Some("releases" at s"${sR2}/libs-release-local")
     })
 
-  var appSettings: Seq[Def.Setting[_]] =  sV ++ sO ++ sR  ++ vS ++ jO ++sOrg ++ f ++ jacoco.settings ++ sAppN ++ sAppV ++ sOrg ++ publ
+  var appSettings: Seq[Def.Setting[_]] =  sV ++ sO ++ sR  ++ vS ++ jO ++sOrg ++ f ++ jacoco.settings ++ sAppN ++ sAppV ++ sOrg ++ publ ++ makeDeploymentSettings(Universal, packageBin in Universal, "zip")
 
   val main = Project(appName, file(".")).enablePlugins(play.sbt.PlayScala).settings(appSettings: _*)
 

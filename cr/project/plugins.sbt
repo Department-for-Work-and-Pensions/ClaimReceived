@@ -6,6 +6,11 @@ resolvers += "Carers repo2" at s"${System.getProperty("artifactory_url")!=null m
 // Use the Play sbt plugin for Play projects
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.4.3")
 
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.6")
+
 addSbtPlugin("de.johoop" % "jacoco4sbt" % "2.1.6")
 
 libraryDependencies += "gov.dwp.carers" %% "carerscommon" % "7.17-SNAPSHOT"
+
+//if required provide credentials file location
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")

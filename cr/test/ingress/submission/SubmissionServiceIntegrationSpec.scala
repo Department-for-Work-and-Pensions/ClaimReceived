@@ -17,6 +17,8 @@ import submission.messaging._
 import scala.concurrent.duration._
 import app.ConfigProperties._
 
+import scala.xml.XML
+
 class SubmissionServiceIntegrationSpec extends Specification with Mockito{
 
   "Ingress Service" should {
@@ -28,8 +30,8 @@ class SubmissionServiceIntegrationSpec extends Specification with Mockito{
       val timestamp = "2013-10-23"
 
       val endpoint = s"http://localhost:$port/submission"
-
-      val response  = Await.result(WS.url(endpoint).post(<request>{timestamp}</request>),DurationInt(4).seconds)
+      val xml = XML.load (getClass getResourceAsStream "/ValidXMLWithRSASignature.xml")
+      val response  = Await.result(WS.url(endpoint).post(<request>{timestamp}{xml}</request>),DurationInt(4).seconds)
 
       try{
         response.status mustEqual OK

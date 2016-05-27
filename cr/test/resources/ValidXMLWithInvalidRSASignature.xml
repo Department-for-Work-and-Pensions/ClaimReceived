@@ -1,0 +1,154 @@
+<DWPBody xsi:schemaLocation="http://www.govtalk.gov.uk/dwp/carers-allowance file:/future/schema/ca/CarersAllowance_Schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="http://www.govtalk.gov.uk/dwp/carers-allowance">
+    <Version>0.7</Version>
+    <DWPCATransaction id="1408TEST432">
+      <TransactionId>1408TEST432</TransactionId>
+      <DateTimeGenerated>11-02-2015 16:34</DateTimeGenerated>
+      <LanguageUsed>English</LanguageUsed>
+      <DWPCAClaim>
+      <DateOfClaim><QuestionLabel>Claim date</QuestionLabel><Answer>01-01-2015</Answer></DateOfClaim>
+      <Claimant>
+      <Surname><QuestionLabel>Last name</QuestionLabel><Answer>KOpKr35xqXWP+nNEj4ypRWlNIrlPmwqmEgHMkG+T3QmQgEpfKcc8Kuhju922SMYN</Answer></Surname>
+      <OtherNames><QuestionLabel>First name</QuestionLabel><Answer>Testing</Answer></OtherNames>
+      
+      <Title><QuestionLabel>Title</QuestionLabel><Answer>Mr</Answer></Title>
+      <DateOfBirth><QuestionLabel>Date of birth</QuestionLabel><Answer>01-02-1960</Answer></DateOfBirth>
+      <NationalInsuranceNumber><QuestionLabel>National Insurance number</QuestionLabel><Answer>/x5NdaYxTDAS6FNg6EuPz7fnKPT85K9QxEE4plNSjNuIYfGJCC8p7DTToGRQW/aB</Answer></NationalInsuranceNumber>
+      <Address>
+      <QuestionLabel>Address</QuestionLabel>
+      <Answer>
+        <Line>line 1 of address</Line><Line>line 2</Line><PostCode>YrXFWUIqkIz29HhgLBP6UolL4d6oVO3pvnCTm5WL2l5qbVKAvKwdSNo7HT9mDCIY</PostCode>
+      </Answer>
+    </Address>
+      <DayTimePhoneNumber><QuestionLabel>Contact phone or mobile number</QuestionLabel><Answer>sdflkajsdlfkjasd</Answer></DayTimePhoneNumber>
+      
+      <TextPhoneContact><QuestionLabel>I have hearing difficulties and I use a textphone.</QuestionLabel><Answer>No</Answer></TextPhoneContact>
+    </Claimant>
+      <Caree>
+      <Surname><QuestionLabel>Last name</QuestionLabel><Answer>4C6fZ5SJPVnKxpb9PGUfXx/PR3B78dJYJY/3kav0y3vPaS18HJrmmruX3d5AOfQc</Answer></Surname>
+      <OtherNames><QuestionLabel>First name</QuestionLabel><Answer>Testing testing</Answer></OtherNames>
+      
+      <Title><QuestionLabel>Title</QuestionLabel><Answer>Mrs</Answer></Title>
+      <DateOfBirth><QuestionLabel>Date of birth</QuestionLabel><Answer>01-01-1940</Answer></DateOfBirth>
+      <NationalInsuranceNumber><QuestionLabel>National Insurance number</QuestionLabel><Answer>qmXWXOPqwkFxm79zzI3I8nJzTUszeZgCmVhP2y6wDedRCyhs5Bv/Z18ynbebUKIe</Answer></NationalInsuranceNumber>
+      <Address>
+      <QuestionLabel>Address</QuestionLabel>
+      <Answer>
+        <Line>line 1 of address</Line><Line>line 2</Line><PostCode>M01pOUI7NlNMpOqyPi0Ysh+wys8HsGMZUyOMVjIh6wir46ZEYDz8sayUfa74M6FB</PostCode>
+      </Answer>
+    </Address>
+      <RelationToClaimant><QuestionLabel>What's their relationship to you?</QuestionLabel><Answer>Other</Answer></RelationToClaimant>
+      <Cared35Hours><QuestionLabel>Do you spend 35 hours or more each week caring for the person you care for?</QuestionLabel><Answer>Yes</Answer></Cared35Hours>
+      <CareBreak>
+        <BreaksSinceClaim><QuestionLabel>Have you had any breaks from caring for this person since 1 January 2015?</QuestionLabel><Answer>No</Answer></BreaksSinceClaim>
+      </CareBreak>
+      <Cared35HoursBefore><QuestionLabel>Did you care for this person for 35 hours or more each week before your claim date: 1 January 2015?</QuestionLabel><Answer>No</Answer></Cared35HoursBefore>
+      
+      <LiveSameAddress><QuestionLabel>Do they live at the same address as you?</QuestionLabel><Answer>Yes</Answer></LiveSameAddress>
+      <ArmedForcesIndependencePayment><QuestionLabel>Does this person get Armed Forces Independence Payment (AFIP)?</QuestionLabel><Answer>Yes</Answer></ArmedForcesIndependencePayment>
+    </Caree>
+      <Residency>
+      <Nationality><QuestionLabel>What is your nationality?</QuestionLabel><Answer>British</Answer></Nationality>
+
+      
+
+      <NormallyLiveInGB><QuestionLabel>Do you normally live in England, Scotland or Wales?</QuestionLabel><Answer>Yes</Answer></NormallyLiveInGB>
+
+      
+
+      <PeriodAbroad>
+        <TimeOutsideGBLast3Years><QuestionLabel>Have you been away from England, Scotland or Wales for more than 52 weeks in the 3 years before your claim date?</QuestionLabel><Answer>No</Answer></TimeOutsideGBLast3Years>
+        
+      </PeriodAbroad>
+
+    </Residency>
+      <CourseOfEducation><QuestionLabel>Have you been on a course of education since your claim date?</QuestionLabel><Answer>No</Answer></CourseOfEducation>
+      
+      <SelfEmployed><QuestionLabel>Have you been self-employed at any time since 25 December 2014?</QuestionLabel><Answer>No</Answer></SelfEmployed>
+      
+      <Employed><QuestionLabel>Have you been employed at any time since 1 July 2014?</QuestionLabel><Answer>No</Answer></Employed>
+      
+      <HavePartner><QuestionLabel>Have you lived with a partner at any time since your claim date?</QuestionLabel><Answer>No</Answer></HavePartner>
+      
+      <OtherBenefits>
+      <OtherMoneySSP><QuestionLabel>Have you had any Statutory Sick Pay since your claim date?</QuestionLabel><Answer>No</Answer></OtherMoneySSP>
+      
+      <OtherMoneySP><QuestionLabel>Have you had any Statutory Maternity Pay, Statutory Paternity Pay or Statutory Adoption Pay since your claim date?</QuestionLabel><Answer>No</Answer></OtherMoneySP>
+      
+      <OtherMoneyPayments><QuestionLabel>Have you received any payments for the person you care for or any other person since your claim date?</QuestionLabel><Answer>No</Answer></OtherMoneyPayments>
+      
+      <EEA>
+        <EEAReceivePensionsBenefits><QuestionLabel>Have you or anyone in your family claimed or been paid any benefits or pensions from any of these countries?</QuestionLabel><Answer>No</Answer></EEAReceivePensionsBenefits>
+        <EEAWorkingInsurance><QuestionLabel>Do you or anyone in your family work or pay insurance in any of these countries?</QuestionLabel><Answer>No</Answer></EEAWorkingInsurance>
+      </EEA>
+    </OtherBenefits>
+      <Payment>
+          <PaymentFrequency><QuestionLabel>How often do you want to get paid?</QuestionLabel><Answer>Every week</Answer></PaymentFrequency>
+          <InitialAccountQuestion><QuestionLabel>How would you like to get paid?</QuestionLabel><Answer>UK bank or building society account</Answer></InitialAccountQuestion>
+          <Account>
+      <HolderName><QuestionLabel>Name of account holder</QuestionLabel><Answer>r4xUZRx/UG0VktRyOH7S2wrob3bnacxIuu8YQpbvYI9jTJwYsOqoiSwJBVg7a4J/I14uuMvCz7DQHFVmr0rBXA==</Answer></HolderName>
+      <BuildingSocietyDetails>
+        <AccountNumber><QuestionLabel>Account number</QuestionLabel><Answer>qqHWNHKHTrbr6U7HikDbPKVnaJW80zSfe7z3Q8xohOziux2/PDY1GjKSp/7Sefvp</Answer></AccountNumber>
+        
+        <SortCode><QuestionLabel>Sort code</QuestionLabel><Answer>YP7mYRLuqhS1dQKgBIjfAxnPzpAnJKhHl316HIyTvREUeM3KXE8lu+q4nGHh/I4Q</Answer></SortCode>
+        <Name><QuestionLabel>Full name of bank or building society</QuestionLabel><Answer>the bank's name</Answer></Name>
+      </BuildingSocietyDetails>
+    </Account>
+        </Payment>
+      <OtherInformation>
+        <WelshCommunication><QuestionLabel>Do you live in Wales and would like to receive future communications in Welsh?</QuestionLabel><Answer>No</Answer></WelshCommunication>
+        <AdditionalInformation><QuestionLabel>Do you want to tell us any additional information about your claim?</QuestionLabel><Answer>No</Answer></AdditionalInformation>
+       </OtherInformation>
+      <Declaration>
+      <DeclarationStatement>
+        <Title>The declarations below set out your legal responsibilities in respect of your claim.</Title>
+        <Content>I declare that I understand the Carer's Allowance Claim Notes and that the information provided on this claim form is correct and complete.</Content>
+        <Content>I understand that I must report all changes in my circumstances or that of the person that I am caring for which may affect my entitlement promptly and by failing to do so I may be liable to prosecution or face a financial penalty.</Content>
+        <Content>I will use the online service or phone 0345 608 4321 or write to Carer's Allowance Unit, Palatine House, Lancaster Road, Preston, PR1 1HB to report a change in my circumstances or that of the person that I am caring for.</Content>
+        <Content>If I give false or incomplete information or fail to report changes in my circumstances or that of the person that I am caring for promptly, I understand that my Carer's Allowance may be stopped or reduced and any overpayment of Carer's Allowance may be recovered. In addition I may be prosecuted or face a financial penalty.</Content>
+      </DeclarationStatement>
+      
+      <DeclarationQuestion><QuestionLabel>Please tick this box to confirm that you understand and make the declarations above.</QuestionLabel><Answer>Yes</Answer></DeclarationQuestion>
+      
+    </Declaration>
+      <Disclaimer>
+      <DisclaimerStatement>
+        <Title>This is my claim for Carer's Allowance.</Title>
+        <Content>I understand that if I am paid Carer's Allowance it may affect the benefits paid to [Testing testing new RSA].</Content>
+        <Content>If the person you are caring for receives certain benefits, the amount they receive may be affected by your claim for Carer's Allowance. Because of this we need both of you to understand the potential consequences of your claim to Carer's Allowance.</Content>
+        <Content>If [Testing testing new RSA] gets a Severe Disability Premium with their income-based Jobseeker's Allowance, Income Support, income-related Employment and Support Allowance, Housing Benefit, they may no longer get that premium if we pay Carer's Allowance to you.</Content>
+        <Content>If [Testing testing new RSA]'s Pension Credit includes an extra amount for severe disability, they may no longer get that extra amount if we pay Carer's Allowance to you.</Content>
+        <Content>This could also affect any reduction in Council Tax [Testing testing new RSA] may be entitled to. To find out more about it, please contact the Local Authority.</Content>
+        <Content>We will need to check [Testing testing new RSA] entitlement to Disability Living Allowance, Personal Independence Payment, Attendance Allowance, Constant Attendance Allowance or Armed Forces Independence Payment when considering your claim.</Content>
+        <Content>We may contact [Testing testing new RSA] or their representative to establish whether 35 hours caring per week is taking place.</Content>
+      </DisclaimerStatement>
+      <DisclaimerQuestion><QuestionLabel>Please tick this box to declare that you have understood the notes and you have made / will make the person you are caring for / or their representative aware that there could be a change to their benefits.</QuestionLabel><Answer>Yes</Answer></DisclaimerQuestion>
+    </Disclaimer>
+      <EvidenceList>
+      <Evidence>
+          <Title/>
+          <Content>The Carer's Allowance Unit will contact you if they need any further information.</Content>
+        </Evidence>
+    </EvidenceList>
+      <Consents>
+      
+      <Consent><QuestionLabel>Do you agree to us getting information from any other person or organisation you have told us about as part of this claim?</QuestionLabel><Answer>Yes</Answer></Consent>
+    </Consents>
+      <AssistedDecisions><AssistedDecision><Reason>Person receives Armed Forces Independence Payment.</Reason><RecommendedDecision>Transfer to Armed Forces Independent Payments team.</RecommendedDecision></AssistedDecision></AssistedDecisions>
+    </DWPCAClaim>
+      </DWPCATransaction>
+    <ds:Signature>
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference URI="#1408TEST432">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>rLP221xqDDsYs/2ApvnTjV6L+DI=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+VLzt9+ewwQZ54S/10II4f3nCEybT5wLIiJPTvtAI5GfAHZgadahyz0AuH3DqQl/HnyIBZKtn+W2b
+DeXYtaCQl8l1d/ZYusR8nmItyE2hGaj/iZA3urQQt6pcyNooiTE9VfsVDasmVcAgLtPxAJBfGcLY
+vJz+beBTjGU/6F2VpGyMT2GO3chvPaR19BixiJxm/jGgLz1iGuJa3mnZlXaHX1pJ8W4RTUfxrbB8
+ntz9eBapkyUpGZ4o0Zjp6vjIIiu5DrZPD38sFOaDKVSOHdSRZ2rFTMInJ8UVPGdaPJ2VseCYUg58
+</ds:SignatureValue>
+</ds:Signature></DWPBody>

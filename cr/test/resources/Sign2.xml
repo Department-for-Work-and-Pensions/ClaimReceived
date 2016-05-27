@@ -1,0 +1,426 @@
+<?xml version="1.0"?>
+<DWPBody xmlns="http://www.govtalk.gov.uk/dwp/carers-allowance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.govtalk.gov.uk/dwp/carers-allowance CarersAllowance_Schema_0.9.xsd">
+        <Version>0.8</Version>
+        <DWPCATransaction id="NFM33DB">
+            <TransactionId>NFM33DB</TransactionId>
+            <DateTimeGenerated>09-10-2010 10:39</DateTimeGenerated>
+            <DWPCAClaim>
+                <DateOfClaim>
+                    <QuestionLabel>When do you want your Carer's Allowance claim to start?</QuestionLabel>
+                    <Answer>01-01-2010</Answer>
+                </DateOfClaim>
+                <Claimant>
+                    <Surname>CaseShort</Surname>
+                    <OtherNames>Test Middle</OtherNames>
+                    <OtherSurnames>Davidson</OtherSurnames>
+                    <Title>Mr</Title>
+                    <DateOfBirth>01-01-1931</DateOfBirth>
+                    <NationalInsuranceNumber>JB486278D</NationalInsuranceNumber>
+                    <Address>
+                        <Line>15 Preston Road</Line>
+                        <Line>Preston</Line>
+                        <PostCode>PR1 2TH</PostCode>
+                    </Address>
+                    <DayTimePhoneNumber>01772 888901</DayTimePhoneNumber>
+                    <MobileNumber>0771 5419808</MobileNumber>
+                    <MaritalStatus>Single</MaritalStatus>
+                    <TextPhoneContact>
+                        <QuestionLabel>text.phone</QuestionLabel>
+                        <Answer>No</Answer>
+                    </TextPhoneContact>
+                </Claimant>
+                <Caree>
+                    <Surname>CaseShorter</Surname>
+                    <OtherNames>Nichola</OtherNames>
+                    <OtherSurnames>Morgan</OtherSurnames>
+                    <Title>Mrs</Title>
+                    <DateOfBirth>03-07-1953</DateOfBirth>
+                    <NationalInsuranceNumber>BA234567B</NationalInsuranceNumber>
+                    <Address>
+                        <Line>16 Preston Road</Line>
+                        <Line>Preston</Line>
+                        <Line>Lancashire</Line>
+                        <PostCode>PR1 2TH</PostCode>
+                    </Address>
+                    <DayTimePhoneNumber>01234 567890</DayTimePhoneNumber>
+                    <RelationToClaimant>
+                        <QuestionLabel>What's their relationshipt to you?</QuestionLabel>
+                        <Answer>Mother</Answer>
+                    </RelationToClaimant>
+                    <Cared35Hours>
+                        <QuestionLabel>Do you spend 35 hours or more each week caring for this person?</QuestionLabel>
+                        <Answer>No</Answer>
+                    </Cared35Hours>
+                    <BreaksSinceClaim>
+                        <QuestionLabel>Have you had any breaks in caring for this person since claim date?</QuestionLabel>
+                        <Answer>No</Answer>
+                    </BreaksSinceClaim>
+                    <Cared35HoursBefore>
+                        <QuestionLabel>care.35.before</QuestionLabel>
+                        <Answer>No</Answer>
+                    </Cared35HoursBefore>
+                    <DateStartCaring>
+                        <QuestionLabel>care.started</QuestionLabel>
+                        <Answer>01-05-2010</Answer>
+                    </DateStartCaring>
+                    <LiveSameAddress>
+                        <QuestionLabel>caree.sameadrees</QuestionLabel>
+                        <Answer>No</Answer>
+                    </LiveSameAddress>
+                    <ArmedForcesIndependencePayment>
+                        <QuestionLabel>Does this person get Armed Forces Independence Payment?</QuestionLabel>
+                        <Answer>No</Answer>
+                    </ArmedForcesIndependencePayment>
+                </Caree>
+                <Residency>
+                    <NormallyLiveInGB>
+                        <QuestionLabel>live.normally.GB</QuestionLabel>
+                        <Answer>No</Answer>
+                    </NormallyLiveInGB>
+                    <CountryNormallyLive>
+                        <QuestionLabel>live.normally.country</QuestionLabel>
+                        <Answer>France</Answer>
+                    </CountryNormallyLive>
+                    <Nationality>British</Nationality>
+                    <TimeOutsideGBLast3Years>
+                        <QuestionLabel>Time.out.GB</QuestionLabel>
+                        <Answer>Yes</Answer>
+                    </TimeOutsideGBLast3Years>
+                    <PeriodAbroad>
+                        <Period>
+                            <DateFrom>
+                                <QuestionLabel>abroad.date.from</QuestionLabel>
+                                <Answer>09-08-2010</Answer>
+                            </DateFrom>
+                            <DateTo>
+                                <QuestionLabel>abroad.date.to</QuestionLabel>
+                                <Answer>12-08-2010</Answer>
+                            </DateTo>
+                        </Period>
+                        <Reason>
+                            <QuestionLabel>abroad.reason</QuestionLabel>
+                            <Other>Funeral</Other>
+                            <Answer>Other</Answer>
+                        </Reason>
+                        <Country>
+                            <QuestionLabel>country.went</QuestionLabel>
+                            <Answer>France</Answer>
+                        </Country>
+                        <CareePresent>
+                            <QuestionLabel>caree.present</QuestionLabel>
+                            <Answer>No</Answer>
+                        </CareePresent>
+                    </PeriodAbroad>
+                    <PeriodAbroad>
+                        <Period>
+                            <DateFrom>
+                                <QuestionLabel>abroad.date.from</QuestionLabel>
+                                <Answer>09-06-2011</Answer>
+                            </DateFrom>
+                            <DateTo>
+                                <QuestionLabel>abroad.date.to</QuestionLabel>
+                                <Answer>12-06-2011</Answer>
+                            </DateTo>
+                        </Period>
+                        <Reason>
+                            <QuestionLabel>abroad.reason</QuestionLabel>
+                            <Answer>Holiday</Answer>
+                        </Reason>
+                        <Country>
+                            <QuestionLabel>country.went</QuestionLabel>
+                            <Answer>Spain</Answer>
+                        </Country>
+                        <CareePresent>
+                            <QuestionLabel>caree.present</QuestionLabel>
+                            <Answer>Yes</Answer>
+                        </CareePresent>
+                    </PeriodAbroad>
+                </Residency>
+                <CourseOfEducation>
+                    <QuestionLabel>Have you been on a course of education since your claim date?</QuestionLabel>
+                    <Answer>No</Answer>
+                </CourseOfEducation>
+
+                <SelfEmployed>
+                    <QuestionLabel>Have you been self-employed at any time since (this is one week before your claim date)?</QuestionLabel>
+                    <Answer>No</Answer>
+                </SelfEmployed>
+
+                <Employed>
+                    <QuestionLabel>Have you been employed at any time since (this is six months before your claim date)?</QuestionLabel>
+                    <Answer>No</Answer>
+                </Employed>
+
+                <HavePartner>
+                    <QuestionLabel>Have you had a partner/spouse living with you since your claim date?</QuestionLabel>
+                    <Answer>Yes</Answer>
+                </HavePartner>
+                <Partner>
+                    <Surname>CaseThree</Surname>
+                    <OtherNames>Test Middle</OtherNames>
+                    <OtherSurnames>Dixon</OtherSurnames>
+                    <Title>Mrs</Title>
+                    <DateOfBirth>28-09-1937</DateOfBirth>
+                    <NationalInsuranceNumber>BA234567A</NationalInsuranceNumber>
+                    <!-- <Address>
+                         <Line>Line4</Line>
+                         <PostCode>GIR 0AA</PostCode>
+                     </Address>
+
+                     <MobileNumber>       </MobileNumber> -->
+                    <DayTimePhoneNumber>0987654321</DayTimePhoneNumber>
+                    <NationalityPartner>British</NationalityPartner>
+                    <RelationshipStatus>
+                        <SeparatedFromPartner>
+                            <QuestionLabel>partner.separated</QuestionLabel>
+                            <Answer>No</Answer>
+                        </SeparatedFromPartner>
+                    </RelationshipStatus>
+                    <IsCaree>
+                        <QuestionLabel>Is your partner/spouse the person you are claiming Carer's Allowance for?</QuestionLabel>
+                        <Answer>No</Answer>
+                    </IsCaree>
+                </Partner>
+                <OtherBenefits>
+                    <ClaimantBenefits>
+                        <StatePension>
+                            <QuestionLabel>Do you get State Pension?</QuestionLabel>
+                            <Answer>No</Answer>
+                        </StatePension>
+                    </ClaimantBenefits>
+                    <OtherMoneySSP>
+                        <QuestionLabel>ssp.money</QuestionLabel>
+                        <Answer>Yes</Answer>
+                    </OtherMoneySSP>
+                    <OtherMoneySSPDetails>
+                        <Payment>
+                            <Payment>
+                                <QuestionLabel>ssp.amount</QuestionLabel>
+                                <Answer>
+                                    <Currency>GBP</Currency>
+                                    <Amount>12</Amount>
+                                </Answer>
+                            </Payment>
+                            <Frequency>
+                                <QuestionLabel>ssp.frequency</QuestionLabel>
+                                <Other>Every day and twice on Sundays</Other>
+                                <Answer>Other</Answer>
+                            </Frequency>
+                        </Payment>
+                        <Name>Burger King</Name>
+                        <Address>
+                            <Line>102 Preston  Road</Line>
+                            <Line>Preston</Line>
+                            <Line>Lancashire</Line>
+                            <PostCode>PR45 6YH</PostCode>
+                        </Address>
+                    </OtherMoneySSPDetails>
+                    <OtherMoneySP>
+                        <QuestionLabel>sp.money</QuestionLabel>
+                        <Answer>Yes</Answer>
+                    </OtherMoneySP>
+                    <OtherMoneySPDetails>
+                        <Payment>
+                            <Payment>
+                                <QuestionLabel>sp.amount</QuestionLabel>
+                                <Answer>
+                                    <Currency>GBP</Currency>
+                                    <Amount>120</Amount>
+                                </Answer>
+                            </Payment>
+                            <Frequency>
+                                <QuestionLabel>sp.frequency</QuestionLabel>
+                                <Answer>Weekly</Answer>
+                            </Frequency>
+                        </Payment>
+                        <Name>KFC</Name>
+                        <Address>
+                            <Line>104 Preston  Road</Line>
+                            <Line>Preston</Line>
+                            <Line>Lancashire</Line>
+                            <PostCode>PR45 6YH</PostCode>
+                        </Address>
+                    </OtherMoneySPDetails>
+                    <OtherMoney>
+                        <QuestionLabel>Have you or your Partner or Spouse claimed or received any other benefits since the date you want to claim?</QuestionLabel>
+                        <Answer>No</Answer>
+                    </OtherMoney>
+                    <OtherMoneyDetails>
+                        <Payment>
+                            <Payment>
+                                <QuestionLabel>Other.amount</QuestionLabel>
+                                <Answer>
+                                    <Currency>GBP</Currency>
+                                    <Amount>123.57</Amount>
+                                </Answer>
+                            </Payment>
+                            <Frequency>
+                                <QuestionLabel>Other.frequency</QuestionLabel>
+                                <Other>Quarterly</Other>
+                                <Answer>Other</Answer>
+                            </Frequency>
+                        </Payment>
+                        <Name>
+                            <QuestionLabel>Other.who</QuestionLabel>
+                            <Answer>The Man</Answer>
+                        </Name>
+                    </OtherMoneyDetails>
+                    <EEA>
+                        <EEAClaimPensionsBenefits>
+                            <QuestionLabel>eea.pension</QuestionLabel>
+                            <Answer>Yes</Answer>
+                        </EEAClaimPensionsBenefits>
+                        <EEAReceivePensionsBenefits>
+                            <QuestionLabel>eea.pension</QuestionLabel>
+                            <Answer>Yes</Answer>
+                        </EEAReceivePensionsBenefits>
+                        <EEAWorkingInsurance>
+                            <QuestionLabel>eea.insurance</QuestionLabel>
+                            <Answer>No</Answer>
+                        </EEAWorkingInsurance>
+                    </EEA>
+
+                </OtherBenefits>
+                <Payment>
+                    <PaymentFrequency>
+                        <QuestionLabel>payment.frequency</QuestionLabel>
+                        <Answer>Weekly</Answer>
+                    </PaymentFrequency>
+                    <InitialAccountQuestion>
+                        <QuestionLabel>payment.way</QuestionLabel>
+                        <Answer>UK bank or building society</Answer>
+                    </InitialAccountQuestion>
+                    <Account>
+                        <HolderName>Mr Test Casetwo</HolderName>
+                        <BuildingSocietyDetails>
+                            <AccountNumber>12345678</AccountNumber>
+                            <!--    <RollNumber>RollNumber0</RollNumber> -->
+                            <SortCode>090126</SortCode>
+                            <Name>Santander</Name>
+                        </BuildingSocietyDetails>
+                    </Account>
+                </Payment>
+                <OtherInformation>
+                    <WelshCommunication>
+                        <QuestionLabel>welsh.communication</QuestionLabel>
+                        <Answer>No</Answer>
+                    </WelshCommunication>
+                    <AdditionalInformation>
+                        <QuestionLabel>anything.else</QuestionLabel>
+                        <Answer>It takes too long to claim. But I can write a very long answer here. 2000 characters.</Answer>
+                    </AdditionalInformation>
+                </OtherInformation>
+                <Declaration>
+                    <DeclarationStatement>
+                        <Content>I am the customer and have completed the form myself.</Content>
+                    </DeclarationStatement>
+                    <DeclarationQuestion>
+                        <QuestionLabel>Please tick this box if this claim form has been filled in by someone else, if so, please ensure that you understand the declarations above as another person cannot make the declarations on your behalf.</QuestionLabel>
+                        <Answer>Yes</Answer>
+                    </DeclarationQuestion>
+                    <DeclarationQuestion>
+                        <QuestionLabel>Please tick this box to confirm that you understand and make the declarations above.</QuestionLabel>
+                        <Answer>Yes</Answer>
+                    </DeclarationQuestion>
+                </Declaration>
+                <EvidenceList>
+                    <RecipientAddress>
+                        <Line>CA Freepost</Line>
+                        <Line>Palatine House</Line>
+                        <Line>Preston</Line>
+                        <PostCode>PR1 1HN</PostCode>
+                    </RecipientAddress>
+                    <Evidence>
+                        <Title>Document you need to send us</Title>
+                        <Content>You must send us all the documents we ask for. If you do not, any benefit you may be entitled to my be delayed because of this claim. 1</Content>
+                        <Content>You must send us all the documents we ask for. If you do not, any benefit you may be entitled to my be delayed because of this claim. 2</Content>
+                        <Content>You must send us all the documents we ask for. If you do not, any benefit you may be entitled to my be delayed because of this claim. 3</Content>
+                    </Evidence>
+                    <Evidence>
+                        <Title>Pay Details</Title>
+                        <Content>You need to send us the last payslip before 10 Ocotber 2013 and all the payslips you have since then.</Content>
+                    </Evidence>
+                    <Evidence>
+                        <Title>Statement Signed</Title>
+                        <Content>You need to send us the completed and signed statement.</Content>
+                    </Evidence>
+                </EvidenceList>
+                <Consents>
+                    <Consent>
+                        <QuestionLabel>An example of a very long consent question so we can see the impact on the report and be sure that everything flows properly. Whenever there are multiple entries in an XML, one has to create subreport.</QuestionLabel>
+                        <Answer>Yes</Answer>
+                    </Consent>
+                    <Consent>
+                        <QuestionLabel>Another consent question</QuestionLabel>
+                        <Answer>Yes</Answer>
+                    </Consent>
+                </Consents>
+            </DWPCAClaim>
+            <!--        <DWPCAChangeOfCircumstances>
+                <Claim>
+                    <ClaimantDetails>
+                        <Surname>Surname3</Surname>
+                        <OtherNames>OtherNames3</OtherNames>
+                        <OtherSurnames>OtherSurnames3</OtherSurnames>
+                        <Title>dame</Title>
+                        <DateOfBirth>2006-05-04</DateOfBirth>
+                        <NationalInsuranceNumber>AA000000!</NationalInsuranceNumber>
+                        <Address>
+                            <Line>Line8</Line>
+                            <PostCode>GIR 0AA</PostCode>
+                        </Address>
+                        <DayTimePhoneNumber>       </DayTimePhoneNumber>
+                        <MobileNumber>       </MobileNumber>
+                    </ClaimantDetails>
+                    <CareeDetails>
+                        <Surname>Surname4</Surname>
+                        <OtherNames>OtherNames4</OtherNames>
+                        <OtherSurnames>OtherSurnames4</OtherSurnames>
+                        <Title>dame</Title>
+                        <DateOfBirth>2006-05-04</DateOfBirth>
+                        <NationalInsuranceNumber>AA000000!</NationalInsuranceNumber>
+                        <Address>
+                            <Line>Line9</Line>
+                            <PostCode>GIR 0AA</PostCode>
+                        </Address>
+                        <DayTimePhoneNumber>       </DayTimePhoneNumber>
+                        <MobileNumber>       </MobileNumber>
+                    </CareeDetails>
+                </Claim>
+                <OtherChanges>
+                    <QuestionLabel>QuestionLabel116</QuestionLabel>
+                    <Answer>Answer88</Answer>
+                </OtherChanges>
+                <Declaration>Declaration1</Declaration>
+                <EvidenceList>
+                    <RecipentAddress>
+                        <Line>Line10</Line>
+                        <PostCode>GIR 0AA</PostCode>
+                    </RecipentAddress>
+                    <Evidences>
+                        <Title>Title7</Title>
+                        <Elements>Elements1</Elements>
+                    </Evidences>
+                </EvidenceList>
+                <Consents>
+                    <Consents>
+                        <QuestionLabel>QuestionLabel117</QuestionLabel>
+                        <Answer>Answer89</Answer>
+                    </Consents>
+                </Consents>
+            </DWPCAChangeOfCircumstances>-->
+        </DWPCATransaction>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:SignedInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+<ds:Reference URI="#NFM33DB" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:Transforms xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+<ds:DigestValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">7CuHX9z6yrAOQvHcvVP2D+rnmrk=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">YwqdQlEC8RFrPzSuwp6QpdkD9Z9AQdaCgKo8Sm6JXoZjgL1B1WkqsQ==</ds:SignatureValue>
+</ds:Signature></DWPBody>
