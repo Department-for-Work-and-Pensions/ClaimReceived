@@ -10,7 +10,7 @@ import com.typesafe.sbt.packager.SettingsHelper._
 
 object ApplicationBuild extends Build {
   val appName         = "cr"
-  val appVersion      = "2.7-SNAPSHOT"
+  val appVersion      = "2.8-SNAPSHOT"
 
   processConfFiles(Seq("conf/application-info.conf"), Seq("application.version" -> appVersion))
 
