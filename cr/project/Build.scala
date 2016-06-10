@@ -28,7 +28,7 @@ object ApplicationBuild extends Build {
     "org.jacoco"          %   "org.jacoco.report"   % "0.7.4.201502262128"  % "test",
     "com.rabbitmq"        %   "amqp-client"   % "3.3.5",
     "me.moocar"           %   "logback-gelf"  % "0.12",
-    "gov.dwp.carers"      %   "xmlcommons"   % "8.01-SNAPSHOT",
+    "gov.dwp.carers"      %   "xmlcommons"   % "8.10-SNAPSHOT",
     "org.postgresql"      %   "postgresql"    % "9.3-1103-jdbc41",
     "org.specs2" %% "specs2-core" % "3.3.1" % "test" withSources() withJavadoc(),
     "org.specs2" %% "specs2-mock" % "3.3.1" % "test" withSources() withJavadoc(),
@@ -47,7 +47,8 @@ object ApplicationBuild extends Build {
   var sR:Seq[Setting[_]] = Seq(
     resolvers += "Carers repo" at sR1,
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
-    resolvers += "Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases")
+    resolvers += "Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases",
+    resolvers += "Local Maven" at "file://"+Path.userHome.absolutePath+"/.m2/repository")
 
   var jO: Seq[Def.Setting[_]] = Seq(testOptions in Test += Tests.Argument("sequential", "true"),
     javaOptions in Test += "-Doverride.rabbit.uri="+(System.getProperty("override.rabbit.uri") match { case s:String => s case null => ""}))

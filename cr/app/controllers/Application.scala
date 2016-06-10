@@ -11,7 +11,7 @@ import app.ConfigProperties._
 object Application extends Controller with SubmissionServiceImpl with SignatureInspectorImpl {
   
   def submission = Action { request =>
-    RenameThread.getTransactionIdAndRenameThread(request.body.asXml)
+    RenameThread.getTransactionIdAndRenameThread(request.body.asXml.getOrElse("").toString)
     Counters.recordClaimReceivedCount()
     Logger.info("Received new message.")
     (getBooleanProperty("check.signature", true)) match {

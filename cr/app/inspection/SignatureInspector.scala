@@ -30,17 +30,17 @@ trait SignatureInspector {
   }
 
   def inspectAndSave(msg: NodeSeq): Boolean = {
+    val msgString = msg.toString()
+    val transactionId=(new TransactionIdExtractor).extractTransactionIdFrom(msgString)
     try {
-      val msgString = msg.toString()
-      val transactionId = TransactionIdExtractor.extractTransactionIdFrom(msg)
       val rtn = (XmlSignatureValidator.validate(msgString)) match {
-        case true => storeMessage(msg, transactionId);
-        case false => Logger.error(s"Signature validator failed for transactionId [${transactionId.get}]"); false
+        case true => storeMessage(msg, Some(transactionId));
+        case false => Logger.error(s"Signature validator failed for transactionId ${transactionId}"); false
       }
       rtn
     } catch {
       case e: Exception =>
-        Logger.error(s"Signature validator threw exception for transactionId [${TransactionIdExtractor.extractTransactionIdFrom(msg).get}]", e)
+        Logger.error(s"Signature validator threw exception for transactionId ${transactionId}", e)
         false
     }
   }

@@ -1,5 +1,5 @@
 package monitoring
 
-import monitor.HealthMonitor
+import utils.monitor.HealthMonitor
 
 object ProdHealthMonitor extends HealthMonitor
