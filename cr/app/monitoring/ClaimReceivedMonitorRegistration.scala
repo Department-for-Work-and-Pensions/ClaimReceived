@@ -1,6 +1,6 @@
 package monitoring
 
-import monitor.{HealthMonitor, MonitorRegistration}
+import utils.monitor.{HealthMonitor, MonitorRegistration}
 import play.api.Logger
 import app.ConfigProperties._
 
